@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+  echo "Error: Please provide at least one number as an argument."
+  exit 1
+fi
+
+sum=0
+for arg in "$@"
+do
+  sum=$((sum + arg))
+done
+
+average=$(echo "scale=2; $sum / $#" | bc)
+
+echo "The average of the numbers is: $average"
